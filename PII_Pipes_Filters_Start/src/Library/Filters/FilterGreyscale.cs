@@ -17,7 +17,7 @@ namespace CompAndDel.Filters
         /// <returns>Imagen con el filtro aplicado.</returns>
         public IPicture Filter(IPicture image)
         {
-            Debug.Assert(image != null);
+            Debug.Assert(image != null);               
             IPicture greyScale = image.Clone();
             for (int x = 0; x < greyScale.Width; x++)
             {
