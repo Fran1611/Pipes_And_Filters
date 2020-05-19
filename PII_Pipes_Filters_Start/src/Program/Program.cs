@@ -62,6 +62,96 @@ namespace CompAndDel
             PipeSerial pipeFilterGreyScale = new PipeSerial(filterGreyscale, pipeFilterSaveImageOne);
             pipeFilterGreyScale.Send(pic);*/
 
+
+            
+
+            pic = p.GetPicture(@"Imagen2.jpg");
+
+            //Filtro FilterBlackAndWhite
+            PipeNull pipeNull = new PipeNull();
+            FilterSaveImage2 filterSaveImage2 = new FilterSaveImage2();
+            PipeSerial pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterBlackAndWhite filterBAndW = new FilterBlackAndWhite(20);
+            PipeSerial pipeFilterBAndW = new PipeSerial(filterBAndW, pipeFilterSaveImage2);
+         
+            pipeFilterBAndW.Send(pic.Clone());
+
+            //Filtro FilterClearOut
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterClearOut filterClearOut = new FilterClearOut();
+            PipeSerial pipeFilterClearOut = new PipeSerial(filterClearOut, pipeFilterSaveImage2);
+         
+            pipeFilterClearOut.Send(pic.Clone());
+
+            //Filtro FilterColoredLines
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterColoredLines filterColoredLines = new FilterColoredLines();
+            PipeSerial pipeFilterColoredLines = new PipeSerial(filterColoredLines, pipeFilterSaveImage2);
+         
+            pipeFilterColoredLines.Send(pic.Clone());
+
+            
+            //Filtro FilterDarken
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterDarken filterDarken = new FilterDarken();
+            PipeSerial pipeFilterDarken = new PipeSerial(filterDarken, pipeFilterSaveImage2);
+         
+            pipeFilterDarken.Send(pic.Clone());
+
+            //Filtro FilterNeon
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterNeon filterNeon = new FilterNeon();
+            PipeSerial pipeFilterNeon = new PipeSerial(filterNeon, pipeFilterSaveImage2);
+         
+            pipeFilterNeon.Send(pic.Clone());
+
+            //Filtro FilterPencil
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterPencil filterPencil = new FilterPencil();
+            PipeSerial pipeFilterPencil = new PipeSerial(filterPencil, pipeFilterSaveImage2);
+         
+            pipeFilterPencil.Send(pic.Clone());
+
+            //Filtro FilterRelief
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterRelief filterRelief = new FilterRelief();
+            PipeSerial pipeFilterRelief = new PipeSerial(filterRelief, pipeFilterSaveImage2);
+         
+            pipeFilterRelief.Send(pic.Clone());
+
+
+            //Filtro FilterGreyScale
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterGreyscale filterGreyScale = new FilterGreyscale();
+            PipeSerial pipeFilterGreyscale = new PipeSerial(filterGreyScale, pipeFilterSaveImage2);
+         
+            pipeFilterGreyscale.Send(pic.Clone());
+
+            
+            //Filtro BlurConvolution
+            pipeNull = new PipeNull();
+            pipeFilterSaveImage2 = new PipeSerial(filterSaveImage2, pipeNull);
+
+            FilterBlurConvolution filterBlurConvolution = new FilterBlurConvolution();
+            PipeSerial pipeFilterBlurConvolution = new PipeSerial(filterBlurConvolution, pipeFilterSaveImage2);
+         
+            pipeFilterBlurConvolution.Send(pic.Clone());
+
         }
     }
 }
